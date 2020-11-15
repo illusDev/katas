@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+
+<head data-th-replace="/fragments/head"></head>
+
+<body>
+
+<nav data-th-replace="/fragments/nav :: nav-admin"></nav>
+
+<div class="container">
+
+    <h1 class="display-2">Products</h1>
+    <a href="/admin/products/add" class="btn btn-primary mb-5">Add new</a>
+
+    <div data-th-if="${message}" data-th-text="${message}" data-th-class="${'alert ' + alertClass}"></div>
+
+    <div data-th-if="${!products.empty}">
+        <table class="table">
+            <tr>
+                <th>Name:</th>
+                <th>Image:</th>
+                <th>Category:</th>
+                <th>Price:</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            <tr data-th-each="product: ${products}">
+                <td data-th-text="${product.name}"></td>
+                <td>
+                    <img style="width: 100px;" data-th-src="@{'/media/' + ${product.image}}">
+                </td>
+                <td data-th-text="${cats[__${product.categoryId}__]}"></td>
+                <td data-th-text="'R ' + ${product.price}"></td>
+                <td><a data-th-href="@{'/admin/products/edit/' + ${product.id}}">Edit</a></td>
+                <td><a data-th-href="@{'/admin/products/delete/' + ${product.id}}" class="confirmDeletion">Delete</a></td>
+            </tr>
+            </tr>
+        </table>
+    </div>
+
+    <div data-th-unless="${!products.empty}">
+        <h4 class="display-4">There are no products at the moment</h4>
+    </div>
+
+</div>
+
+<div data-th-replace="/fragments/footer"></div>
+
+</body>
+
+</html>

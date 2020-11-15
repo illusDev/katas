@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+
+<head data-th-replace="/fragments/head"></head>
+
+<body>
+
+<nav data-th-replace="/fragments/nav :: nav-admin"></nav>
+
+<div class="container">
+
+    <h1 class="display-2">Categories</h1>
+    <a href="/admin/categories/add" class="btn btn-primary mb-5">Add new</a>
+
+    <div data-th-if="${message}" data-th-text="${message}" data-th-class="${'alert ' + alertClass}"></div>
+
+    <div data-th-if="${!categories.empty}">
+        <table class="table sorting" id="categories">
+            <tr class="home">
+                <th>Name</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            <tr data-th-each="category: ${categories}" data-th-id="'id_' + ${category.id}">
+                <td data-th-text="${category.name}"></td>
+                <td><a data-th-href="@{'/admin/categories/edit/' + ${category.id}}">Edit</a></td>
+                <td><a data-th-href="@{'/admin/categories/delete/' + ${category.id}}" class="confirmDeletion">Delete</a></td>
+            </tr>
+        </table>
+    </div>
+
+    <div data-th-unless="${!categories.empty}">
+        <h4 class="display-4">There are no categories at the moment</h4>
+    </div>
+
+</div>
+
+<div data-th-replace="/fragments/footer"></div>
+
+</body>
+
+</html>
