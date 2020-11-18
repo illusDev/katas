@@ -1,4 +1,4 @@
-package com.ecommerce.kitchentreats.db.pojos;
+package com.ecommerce.kitchentreats.domain.pojos;
 
 import javax.persistence.*;
 

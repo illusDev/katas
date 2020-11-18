@@ -1,10 +1,9 @@
 package com.ecommerce.kitchentreats.controllers.admin;
 
-import com.ecommerce.kitchentreats.db.pojos.Category;
-import com.ecommerce.kitchentreats.db.pojos.Product;
-import com.ecommerce.kitchentreats.db.repsoitories.CategoryRepository;
-import com.ecommerce.kitchentreats.db.repsoitories.ProductRepository;
-import org.apache.tomcat.jni.File;
+import com.ecommerce.kitchentreats.domain.pojos.Category;
+import com.ecommerce.kitchentreats.domain.pojos.Product;
+import com.ecommerce.kitchentreats.domain.repositories.CategoryRepository;
+import com.ecommerce.kitchentreats.domain.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

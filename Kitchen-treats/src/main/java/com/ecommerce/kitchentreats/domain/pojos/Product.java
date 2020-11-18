@@ -1,4 +1,4 @@
-package com.ecommerce.kitchentreats.db.pojos;
+package com.ecommerce.kitchentreats.domain.pojos;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -25,7 +25,7 @@ public class Product {
     private String image;
 
     @Column(name = "category_id")
-    private String categoryId;
+    private int categoryId;
 
     @Column(name = "created_at")
     @CreationTimestamp
@@ -83,11 +83,11 @@ public class Product {
         this.image = image;
     }
 
-    public String getCategoryId() {
+    public int getCategoryId() {
         return categoryId;
     }
 
-    public void setCategoryId(String categoryId) {
+    public void setCategoryId(int categoryId) {
         this.categoryId = categoryId;
     }
 
